@@ -1,4 +1,4 @@
-# Template - IBM HTTP Server 9 on a single VM
+# Template - IBM HTTP Server V9 on a single virtual machine
 Template Version - 1.0
 
 ## Description

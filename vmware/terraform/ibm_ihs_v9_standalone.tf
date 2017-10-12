@@ -9,11 +9,12 @@
 # This is a terraform generated template generated from ibm_ihs_v9_standalone
 
 ##############################################################
-# Keys - CAMC (public/private) & optional User Key (public)
+# Keys - CAMC (public/private) & optional User Key (public) 
 ##############################################################
 variable "user_public_ssh_key" {
-  type        = "string"
+  type = "string"
   description = "User defined public SSH key used to connect to the virtual machine. The format must be in openSSH."
+  default = "None"
 }
 
 variable "ibm_pm_public_ssh_key" {
@@ -26,10 +27,11 @@ variable "ibm_pm_private_ssh_key" {
 
 variable "allow_unverified_ssl" {
   description = "Communication with vsphere server with self signed certificate"
+  default = "true"
 }
 
 ##############################################################
-# Define the vsphere provider
+# Define the vsphere provider 
 ##############################################################
 provider "vsphere" {
   allow_unverified_ssl = "${var.allow_unverified_ssl}"
@@ -40,7 +42,7 @@ resource "random_id" "stack_id" {
 }
 
 ##############################################################
-# Define pattern variables
+# Define pattern variables 
 ##############################################################
 ##### unique stack name #####
 variable "ibm_stack_name" {
@@ -52,173 +54,197 @@ variable "ibm_stack_name" {
 ##### Environment variables #####
 #Variable : ibm_im_repo
 variable "ibm_im_repo" {
-  type        = "string"
+  type = "string"
   description = "IBM Software  Installation Manager Repository URL (https://<hostname/IP>:<port>/IMRepo) "
 }
 
 #Variable : ibm_im_repo_password
 variable "ibm_im_repo_password" {
-  type        = "string"
+  type = "string"
   description = "IBM Software  Installation Manager Repository Password"
 }
 
 #Variable : ibm_im_repo_user
 variable "ibm_im_repo_user" {
-  type        = "string"
+  type = "string"
   description = "IBM Software  Installation Manager Repository username"
+  default = "repouser"
 }
 
 #Variable : ibm_pm_access_token
 variable "ibm_pm_access_token" {
-  type        = "string"
+  type = "string"
   description = "IBM Pattern Manager Access Token"
 }
 
 #Variable : ibm_pm_service
 variable "ibm_pm_service" {
-  type        = "string"
+  type = "string"
   description = "IBM Pattern Manager Service"
 }
 
 #Variable : ibm_sw_repo
 variable "ibm_sw_repo" {
-  type        = "string"
+  type = "string"
   description = "IBM Software Repo Root (https://<hostname>:<port>)"
 }
 
 #Variable : ibm_sw_repo_password
 variable "ibm_sw_repo_password" {
-  type        = "string"
+  type = "string"
   description = "IBM Software Repo Password"
 }
 
 #Variable : ibm_sw_repo_user
 variable "ibm_sw_repo_user" {
-  type        = "string"
+  type = "string"
   description = "IBM Software Repo Username"
+  default = "repouser"
 }
+
 
 ##### IHSNode01 variables #####
 #Variable : IHSNode01-image
 variable "IHSNode01-image" {
-  type        = "string"
+  type = "string"
   description = "Operating system image id / template that should be used when creating the virtual image"
 }
 
 #Variable : IHSNode01-name
 variable "IHSNode01-name" {
-  type        = "string"
+  type = "string"
   description = "Short hostname of virtual machine"
 }
 
 #Variable : IHSNode01-os_admin_user
 variable "IHSNode01-os_admin_user" {
-  type        = "string"
+  type = "string"
   description = "Name of the admin user account in the virtual machine that will be accessed via SSH"
 }
 
 #Variable : IHSNode01_ihs_admin_server_enabled
 variable "IHSNode01_ihs_admin_server_enabled" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Admin Server Enable(true/false)"
+  default = "true"
 }
 
 #Variable : IHSNode01_ihs_admin_server_password
 variable "IHSNode01_ihs_admin_server_password" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Admin Server Password"
 }
 
 #Variable : IHSNode01_ihs_admin_server_port
 variable "IHSNode01_ihs_admin_server_port" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Admin Server Port Number"
+  default = "8008"
 }
 
 #Variable : IHSNode01_ihs_admin_server_username
 variable "IHSNode01_ihs_admin_server_username" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Admin Server username"
+  default = "ihsadmin"
 }
 
 #Variable : IHSNode01_ihs_install_dir
 variable "IHSNode01_ihs_install_dir" {
-  type        = "string"
+  type = "string"
   description = "The directory to install IBM HTTP Server"
+  default = "/opt/IBM/HTTPServer"
 }
 
 #Variable : IHSNode01_ihs_install_mode
 variable "IHSNode01_ihs_install_mode" {
-  type        = "string"
+  type = "string"
   description = "The mode of installation for IBM HTTP Server"
+  default = "nonAdmin"
 }
 
 #Variable : IHSNode01_ihs_java_legacy
 variable "IHSNode01_ihs_java_legacy" {
-  type        = "string"
+  type = "string"
   description = "The Java version to be used with IBM HTTP Server version 8.5.5"
+  default = "java8"
 }
 
 #Variable : IHSNode01_ihs_java_version
 variable "IHSNode01_ihs_java_version" {
-  type        = "string"
+  type = "string"
   description = "The Java version to be used with IBM HTTP Server"
+  default = "8.0.4.70"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_gid
 variable "IHSNode01_ihs_os_users_ihs_gid" {
-  type        = "string"
+  type = "string"
   description = "The group name for the IBM HTTP Server user"
+  default = "ihsgrp"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_name
 variable "IHSNode01_ihs_os_users_ihs_name" {
-  type        = "string"
+  type = "string"
   description = "The username for IBM HTTP Server"
+  default = "ihssrv"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_shell
 variable "IHSNode01_ihs_os_users_ihs_shell" {
-  type        = "string"
+  type = "string"
   description = "Location of the IBM HTTP Server operating system user shell"
+  default = "/sbin/nologin"
 }
 
 #Variable : IHSNode01_ihs_plugin_enabled
 variable "IHSNode01_ihs_plugin_enabled" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Plugin Enabled"
+  default = "true"
 }
 
 #Variable : IHSNode01_ihs_plugin_install_dir
 variable "IHSNode01_ihs_plugin_install_dir" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Plugin Installation Direcrtory"
+  default = "/opt/IBM/WebSphere/Plugins"
 }
 
 #Variable : IHSNode01_ihs_plugin_was_webserver_name
 variable "IHSNode01_ihs_plugin_was_webserver_name" {
-  type        = "string"
+  type = "string"
   description = "IBM HTTP Server Plugin Hostname, normally the FQDN"
+  default = "webserver1"
 }
 
 #Variable : IHSNode01_ihs_port
 variable "IHSNode01_ihs_port" {
-  type        = "string"
+  type = "string"
   description = "The IBM HTTP Server default port for HTTP requests"
+  default = "8080"
 }
 
 #Variable : IHSNode01_ihs_version
 variable "IHSNode01_ihs_version" {
-  type        = "string"
+  type = "string"
   description = "The version of IBM HTTP Server to install"
+  default = "9.0.0.4"
 }
+
 
 #########################################################
 ##### Resource : IHSNode01
 #########################################################
 
+variable "IHSNode01_domain" {
+  type = "string"
+  description = "Domain Name of virtual machine"
+}
+
 variable "IHSNode01-os_password" {
-  type        = "string"
+  type = "string"
   description = "Operating System Password for the Operating System User to access virtual machine"
 }
 
@@ -232,10 +258,12 @@ variable "IHSNode01_datacenter" {
 
 variable "IHSNode01_number_of_vcpu" {
   description = "Number of virtual CPU for the virtual machine, which is required to be a positive Integer"
+  default = "2"
 }
 
 variable "IHSNode01_memory" {
   description = "Memory assigned to the virtual machine in megabytes. This value is required to be an increment of 1024"
+  default = "2048"
 }
 
 variable "IHSNode01_cluster" {
@@ -243,12 +271,12 @@ variable "IHSNode01_cluster" {
 }
 
 variable "IHSNode01_dns_suffixes" {
-  type        = "list"
+  type = "list"
   description = "Name resolution suffixes for the virtual network adapter"
 }
 
 variable "IHSNode01_dns_servers" {
-  type        = "list"
+  type = "list"
   description = "DNS servers for the virtual network adapter"
 }
 
@@ -273,57 +301,60 @@ variable "IHSNode01_root_disk_datastore" {
 }
 
 variable "IHSNode01_root_disk_type" {
-  type        = "string"
+  type = "string"
   description = "Type of template disk volume"
+  default = "eager_zeroed"
 }
 
 variable "IHSNode01_root_disk_controller_type" {
-  type        = "string"
+  type = "string"
   description = "Type of template disk controller"
+  default = "scsi"
 }
 
 variable "IHSNode01_root_disk_keep_on_remove" {
-  type        = "string"
+  type = "string"
   description = "Delete template disk volume when the virtual machine is deleted"
+  default = "false"
 }
 
 # vsphere vm
 resource "vsphere_virtual_machine" "IHSNode01" {
-  name         = "${var.IHSNode01-name}"
-  folder       = "${var.IHSNode01_folder}"
-  datacenter   = "${var.IHSNode01_datacenter}"
-  vcpu         = "${var.IHSNode01_number_of_vcpu}"
-  memory       = "${var.IHSNode01_memory}"
-  cluster      = "${var.IHSNode01_cluster}"
+  name = "${var.IHSNode01-name}"
+  folder = "${var.IHSNode01_folder}"
+  datacenter = "${var.IHSNode01_datacenter}"
+  vcpu = "${var.IHSNode01_number_of_vcpu}"
+  memory = "${var.IHSNode01_memory}"
+  cluster = "${var.IHSNode01_cluster}"
   dns_suffixes = "${var.IHSNode01_dns_suffixes}"
-  dns_servers  = "${var.IHSNode01_dns_servers}"
+  dns_servers = "${var.IHSNode01_dns_servers}"
+  domain = "${var.IHSNode01_domain}"
 
   network_interface {
-    label              = "${var.IHSNode01_network_interface_label}"
-    ipv4_gateway       = "${var.IHSNode01_ipv4_gateway}"
-    ipv4_address       = "${var.IHSNode01_ipv4_address}"
+    label = "${var.IHSNode01_network_interface_label}"
+    ipv4_gateway = "${var.IHSNode01_ipv4_gateway}"
+    ipv4_address = "${var.IHSNode01_ipv4_address}"
     ipv4_prefix_length = "${var.IHSNode01_ipv4_prefix_length}"
   }
 
   disk {
-    type            = "${var.IHSNode01_root_disk_type}"
-    template        = "${var.IHSNode01-image}"
-    datastore       = "${var.IHSNode01_root_disk_datastore}"
-    keep_on_remove  = "${var.IHSNode01_root_disk_keep_on_remove}"
+    type = "${var.IHSNode01_root_disk_type}"
+    template = "${var.IHSNode01-image}"
+    datastore = "${var.IHSNode01_root_disk_datastore}"
+    keep_on_remove = "${var.IHSNode01_root_disk_keep_on_remove}"
     controller_type = "${var.IHSNode01_root_disk_controller_type}"
   }
 
   # Specify the connection
   connection {
-    type     = "ssh"
-    user     = "${var.IHSNode01-os_admin_user}"
+    type = "ssh"
+    user = "${var.IHSNode01-os_admin_user}"
     password = "${var.IHSNode01-os_password}"
   }
 
   provisioner "file" {
     destination = "IHSNode01_add_ssh_key.sh"
-
-    content = <<EOF
+    content     = <<EOF
 ##############################################################
 # Licensed Materials - Property of IBM
 #
@@ -387,9 +418,10 @@ EOF
   provisioner "remote-exec" {
     inline = [
       "sudo bash -c 'chmod +x IHSNode01_add_ssh_key.sh'",
-      "sudo bash -c './IHSNode01_add_ssh_key.sh  \"${var.IHSNode01-os_admin_user}\" \"${var.user_public_ssh_key}\" \"${var.ibm_pm_public_ssh_key}\">> IHSNode01_add_ssh_key.log 2>&1'",
+      "sudo bash -c './IHSNode01_add_ssh_key.sh  \"${var.IHSNode01-os_admin_user}\" \"${var.user_public_ssh_key}\" \"${var.ibm_pm_public_ssh_key}\">> IHSNode01_add_ssh_key.log 2>&1'"
     ]
   }
+
 }
 
 #########################################################
@@ -397,13 +429,12 @@ EOF
 #########################################################
 
 resource "camc_bootstrap" "IHSNode01_chef_bootstrap_comp" {
-  depends_on      = ["camc_vaultitem.VaultItem", "vsphere_virtual_machine.IHSNode01"]
-  name            = "IHSNode01_chef_bootstrap_comp"
-  camc_endpoint   = "${var.ibm_pm_service}/v1/bootstrap/chef"
-  access_token    = "${var.ibm_pm_access_token}"
+  depends_on = ["camc_vaultitem.VaultItem","vsphere_virtual_machine.IHSNode01"]
+  name = "IHSNode01_chef_bootstrap_comp"
+  camc_endpoint = "${var.ibm_pm_service}/v1/bootstrap/chef"
+  access_token = "${var.ibm_pm_access_token}"
   skip_ssl_verify = true
-  trace           = true
-
+  trace = true
   data = <<EOT
 {
   "os_admin_user": "${var.IHSNode01-os_admin_user}",
@@ -425,18 +456,18 @@ resource "camc_bootstrap" "IHSNode01_chef_bootstrap_comp" {
 EOT
 }
 
+
 #########################################################
 ##### Resource : IHSNode01_ihs-wasmode-nonadmin
 #########################################################
 
 resource "camc_softwaredeploy" "IHSNode01_ihs-wasmode-nonadmin" {
-  depends_on      = ["camc_bootstrap.IHSNode01_chef_bootstrap_comp"]
-  name            = "IHSNode01_ihs-wasmode-nonadmin"
-  camc_endpoint   = "${var.ibm_pm_service}/v1/software_deployment/chef"
-  access_token    = "${var.ibm_pm_access_token}"
+  depends_on = ["camc_bootstrap.IHSNode01_chef_bootstrap_comp"]
+  name = "IHSNode01_ihs-wasmode-nonadmin"
+  camc_endpoint = "${var.ibm_pm_service}/v1/software_deployment/chef"
+  access_token = "${var.ibm_pm_access_token}"
   skip_ssl_verify = true
-  trace           = true
-
+  trace = true
   data = <<EOT
 {
   "os_admin_user": "${var.IHSNode01-os_admin_user}",
@@ -502,16 +533,16 @@ resource "camc_softwaredeploy" "IHSNode01_ihs-wasmode-nonadmin" {
 EOT
 }
 
+
 #########################################################
 ##### Resource : VaultItem
 #########################################################
 
 resource "camc_vaultitem" "VaultItem" {
-  camc_endpoint   = "${var.ibm_pm_service}/v1/vault_item/chef"
-  access_token    = "${var.ibm_pm_access_token}"
+  camc_endpoint = "${var.ibm_pm_service}/v1/vault_item/chef"
+  access_token = "${var.ibm_pm_access_token}"
   skip_ssl_verify = true
-  trace           = true
-
+  trace = true
   data = <<EOT
 {
   "vault_content": {
@@ -538,3 +569,4 @@ output "IHSNode01_roles" {
 output "stack_id" {
   value = "${random_id.stack_id.hex}"
 }
+

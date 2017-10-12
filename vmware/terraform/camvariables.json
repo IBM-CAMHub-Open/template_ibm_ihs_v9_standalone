@@ -103,6 +103,29 @@
       "group_name": "virtualmachine"
     },
     {
+      "name": "IHSNode01_domain",
+      "type": "string",
+      "description": "Domain Name of virtual machine",
+      "hidden": false,
+      "label": "Domain Name - IHSNode01",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "IHSNode01_ihs_java_version",
+      "type": "string",
+      "description": "The Java version to be used with IBM HTTP Server",
+      "default": "8.0.4.70",
+      "hidden": true,
+      "label": "IBM HTTP Server Java version - IHSNode01",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "ihsnode01"
+    },
+    {
       "name": "IHSNode01_ihs_os_users_ihs_shell",
       "type": "string",
       "description": "Location of the IBM HTTP Server operating system user shell",
@@ -127,72 +150,23 @@
       "group_name": "ihsnode01"
     },
     {
+      "name": "IHSNode01_ihs_admin_server_password",
+      "type": "string",
+      "description": "IBM HTTP Server Admin Server Password",
+      "hidden": false,
+      "label": "IBM HTTP Server admin server password - IHSNode01",
+      "secured": true,
+      "required": true,
+      "immutable": false,
+      "group_name": "ihsnode01"
+    },
+    {
       "name": "IHSNode01_ihs_admin_server_port",
       "type": "string",
       "description": "IBM HTTP Server Admin Server Port Number",
       "default": "8008",
       "hidden": true,
       "label": "IBM HTTP Server admin server port - IHSNode01",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "ihsnode01"
-    },
-    {
-      "name": "IHSNode01_ihs_version",
-      "type": "string",
-      "description": "The version of IBM HTTP Server to install",
-      "default": "9.0.0.4",
-      "hidden": false,
-      "label": "IBM HTTP Server install version - IHSNode01",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "ihsnode01"
-    },
-    {
-      "name": "IHSNode01_ihs_java_version",
-      "type": "string",
-      "description": "The Java version to be used with IBM HTTP Server",
-      "default": "8.0.4.70",
-      "hidden": true,
-      "label": "IBM HTTP Server Java version - IHSNode01",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "ihsnode01"
-    },
-    {
-      "name": "IHSNode01_ihs_install_dir",
-      "type": "string",
-      "description": "The directory to install IBM HTTP Server",
-      "default": "/opt/IBM/HTTPServer",
-      "hidden": false,
-      "label": "IBM HTTP Server installation directory - IHSNode01",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "ihsnode01"
-    },
-    {
-      "name": "IHSNode01_ihs_plugin_install_dir",
-      "type": "string",
-      "description": "IBM HTTP Server Plugin Installation Direcrtory",
-      "default": "/opt/IBM/WebSphere/Plugins",
-      "hidden": false,
-      "label": "IBM HTTP Server plugin installation directory - IHSNode01",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "ihsnode01"
-    },
-    {
-      "name": "IHSNode01_ihs_plugin_was_webserver_name",
-      "type": "string",
-      "description": "IBM HTTP Server Plugin Hostname, normally the FQDN",
-      "default": "webserver1",
-      "hidden": false,
-      "label": "IBM HTTP Server plugin hostname - IHSNode01",
       "secured": false,
       "required": true,
       "immutable": false,
@@ -211,12 +185,25 @@
       "group_name": "ihsnode01"
     },
     {
-      "name": "IHSNode01_ihs_admin_server_password",
+      "name": "IHSNode01_ihs_version",
       "type": "string",
-      "description": "IBM HTTP Server Admin Server Password",
+      "description": "The version of IBM HTTP Server to install",
+      "default": "9.0.0.4",
       "hidden": false,
-      "label": "IBM HTTP Server admin server password - IHSNode01",
-      "secured": true,
+      "label": "IBM HTTP Server install version - IHSNode01",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "ihsnode01"
+    },
+    {
+      "name": "IHSNode01_ihs_install_dir",
+      "type": "string",
+      "description": "The directory to install IBM HTTP Server",
+      "default": "/opt/IBM/HTTPServer",
+      "hidden": false,
+      "label": "IBM HTTP Server installation directory - IHSNode01",
+      "secured": false,
       "required": true,
       "immutable": false,
       "group_name": "ihsnode01"
@@ -240,6 +227,30 @@
       "default": "true",
       "hidden": true,
       "label": "IBM HTTP Server plugin enabled - IHSNode01",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "ihsnode01"
+    },
+    {
+      "name": "IHSNode01_ihs_plugin_was_webserver_name",
+      "type": "string",
+      "description": "IBM HTTP Server Plugin Hostname, normally the FQDN",
+      "default": "webserver1",
+      "hidden": false,
+      "label": "IBM HTTP Server plugin hostname - IHSNode01",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "ihsnode01"
+    },
+    {
+      "name": "IHSNode01_ihs_plugin_install_dir",
+      "type": "string",
+      "description": "IBM HTTP Server Plugin Installation Direcrtory",
+      "default": "/opt/IBM/WebSphere/Plugins",
+      "hidden": false,
+      "label": "IBM HTTP Server plugin installation directory - IHSNode01",
       "secured": false,
       "required": true,
       "immutable": false,
@@ -526,7 +537,8 @@
       "options": [
         {
           "value": "eager_zeroed",
-          "label": "Thick Provision Eager Zeroed"
+          "label": "Thick Provision Eager Zeroed",
+          "default": "true"
         },
         {
           "value": "lazy",
@@ -535,7 +547,6 @@
         {
           "value": "thin",
           "label": "Thin Provision",
-          "default": "true",
           "group_name": "virtualmachine"
         }
       ],
@@ -592,7 +603,7 @@
       "name": "IHSNode01_number_of_vcpu",
       "type": "string",
       "description": "Number of virtual CPU for the virtual machine, which is required to be a positive Integer",
-      "default": 1,
+      "default": 2,
       "hidden": false,
       "label": "Virtual Machine vCPUs - IHSNode01",
       "secured": false,

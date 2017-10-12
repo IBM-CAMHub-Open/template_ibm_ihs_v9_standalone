@@ -1,5 +1,5 @@
 {
-    "name": "IBM HTTP Server 9 on a single VM - VMware vSphere",
+    "name": "IBM HTTP Server V9 on a single virtual machine - VMware vSphere",
     "description": "This template deploys a standalone instance of IBM HTTP Server 9 on a Linux virtual machine.",
     "version": "1.0",
     "imageUrl": "",
@@ -23,7 +23,7 @@
       }
     },
     "metadata": {
-      "displayName": "IBM HTTP Server 9 on a single VM",
+      "displayName": "IBM HTTP Server V9 on a single virtual machine",
       "providerDisplayName": "VMware vSphere",
       "longDescription": "This template deploys a standalone instance of IBM HTTP Server 9 on a Linux virtual machine.",
       "bullets": [{
