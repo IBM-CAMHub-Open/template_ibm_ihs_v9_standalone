@@ -12,10 +12,6 @@
       "label": "Cloud Input Variables"
     },
     {
-      "name": "virtualmachine",
-      "label": "Virtual Machine Input Variables"
-    },
-    {
       "name": "ssh_keys",
       "label": "SSH Keys"
     },
@@ -28,8 +24,8 @@
       "label": "IHSNode01"
     },
     {
-      "name": "ungrouped",
-      "label": "ungrouped"
+      "name": "virtualmachine",
+      "label": "Virtual Machine Input Variables"
     }
   ],
   "output_groups": [
@@ -365,30 +361,6 @@
       "group_name": "environment"
     },
     {
-      "name": "IHSNode01_local_disk",
-      "type": "string",
-      "description": "User local disk or SAN disk",
-      "default": "false",
-      "hidden": false,
-      "label": "IBMCloud - Local / SAN Disk - IHSNode01",
-      "secured": false,
-      "options": [
-        {
-          "value": "true",
-          "label": "True"
-        },
-        {
-          "value": "false",
-          "label": "False",
-          "default": "true"
-        }
-      ],
-      "required": true,
-      "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
-    },
-    {
       "name": "IHSNode01_datacenter",
       "type": "string",
       "description": "IBMCloud datacenter where infrastructure resources will be deployed",
@@ -525,8 +497,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01_dedicated_acct_host_only",
@@ -549,8 +520,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01_hourly_billing",
@@ -573,8 +543,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01_network_speed",
@@ -597,8 +566,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01_private_network_only",
@@ -621,8 +589,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01_memory",
@@ -665,8 +632,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01_number_of_cores",
@@ -709,8 +675,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01-image",
@@ -756,8 +721,7 @@
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "IHSNode01-name",
@@ -768,30 +732,31 @@
       "secured": false,
       "required": true,
       "immutable": false,
+      "immutable_after_create": true,
       "group_name": "virtualmachine"
     },
     {
-      "name": "IHSNode01-mgmt-network-public",
+      "name": "IHSNode01_local_disk",
       "type": "string",
-      "description": "Expose and use public IP of virtual machine for internal communication",
-      "default": "true",
+      "description": "User local disk or SAN disk",
+      "default": "false",
       "hidden": false,
-      "label": "Use Public Management Network - IHSNode01",
+      "label": "IBMCloud - Local / SAN Disk - IHSNode01",
       "secured": false,
       "options": [
         {
-          "value": false,
-          "label": false
+          "value": "true",
+          "label": "True"
         },
         {
-          "value": true,
-          "label": true
+          "value": "false",
+          "label": "False",
+          "default": "true"
         }
       ],
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
-      "group_name": "ihsnode01"
+      "group_name": "cloud"
     },
     {
       "name": "ibm_pm_private_ssh_key",
@@ -818,6 +783,28 @@
       "default": "${advanced_content_runtime_chef.ibm_pm_public_ssh_key_name}"
     },
     {
+      "name": "IHSNode01-mgmt-network-public",
+      "type": "string",
+      "description": "Expose and use public IP of virtual machine for internal communication",
+      "default": "true",
+      "hidden": false,
+      "label": "Use Public Management Network",
+      "secured": false,
+      "options": [
+        {
+          "value": false,
+          "label": false
+        },
+        {
+          "value": true,
+          "label": true
+        }
+      ],
+      "required": true,
+      "immutable": false,
+      "group_name": "virtualmachine"
+    },
+    {
       "name": "user_public_ssh_key",
       "type": "string",
       "description": "User defined public SSH key used to connect to the virtual machine. The format must be in openSSH.",
@@ -827,6 +814,7 @@
       "secured": false,
       "required": true,
       "immutable": false,
+      "immutable_after_create": true,
       "group_name": "ssh_keys"
     },
     {

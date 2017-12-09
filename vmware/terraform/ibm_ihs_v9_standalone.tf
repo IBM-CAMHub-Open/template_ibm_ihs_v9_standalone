@@ -14,7 +14,6 @@
 variable "user_public_ssh_key" {
   type = "string"
   description = "User defined public SSH key used to connect to the virtual machine. The format must be in openSSH."
-  default = "None"
 }
 
 variable "ibm_pm_public_ssh_key" {
@@ -27,7 +26,6 @@ variable "ibm_pm_private_ssh_key" {
 
 variable "allow_unverified_ssl" {
   description = "Communication with vsphere server with self signed certificate"
-  default = "true"
 }
 
 ##############################################################
@@ -58,7 +56,6 @@ variable "ibm_stack_name" {
   description = "A unique stack name."
 }
 
-#### Default OS Admin User Map ####
 
 ##### Environment variables #####
 #Variable : ibm_im_repo
@@ -77,7 +74,6 @@ variable "ibm_im_repo_password" {
 variable "ibm_im_repo_user" {
   type = "string"
   description = "IBM Software  Installation Manager Repository username"
-  default = "repouser"
 }
 
 #Variable : ibm_pm_access_token
@@ -108,7 +104,6 @@ variable "ibm_sw_repo_password" {
 variable "ibm_sw_repo_user" {
   type = "string"
   description = "IBM Software Repo Username"
-  default = "repouser"
 }
 
 
@@ -135,7 +130,6 @@ variable "IHSNode01-os_admin_user" {
 variable "IHSNode01_ihs_admin_server_enabled" {
   type = "string"
   description = "IBM HTTP Server Admin Server Enable(true/false)"
-  default = "true"
 }
 
 #Variable : IHSNode01_ihs_admin_server_password
@@ -148,100 +142,88 @@ variable "IHSNode01_ihs_admin_server_password" {
 variable "IHSNode01_ihs_admin_server_port" {
   type = "string"
   description = "IBM HTTP Server Admin Server Port Number"
-  default = "8008"
 }
 
 #Variable : IHSNode01_ihs_admin_server_username
 variable "IHSNode01_ihs_admin_server_username" {
   type = "string"
   description = "IBM HTTP Server Admin Server username"
-  default = "ihsadmin"
 }
 
 #Variable : IHSNode01_ihs_install_dir
 variable "IHSNode01_ihs_install_dir" {
   type = "string"
   description = "The directory to install IBM HTTP Server"
-  default = "/opt/IBM/HTTPServer"
 }
 
 #Variable : IHSNode01_ihs_install_mode
 variable "IHSNode01_ihs_install_mode" {
   type = "string"
   description = "The mode of installation for IBM HTTP Server"
-  default = "nonAdmin"
 }
 
 #Variable : IHSNode01_ihs_java_legacy
 variable "IHSNode01_ihs_java_legacy" {
   type = "string"
   description = "The Java version to be used with IBM HTTP Server version 8.5.5"
-  default = "java8"
 }
 
 #Variable : IHSNode01_ihs_java_version
 variable "IHSNode01_ihs_java_version" {
   type = "string"
   description = "The Java version to be used with IBM HTTP Server"
-  default = "8.0.4.70"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_gid
 variable "IHSNode01_ihs_os_users_ihs_gid" {
   type = "string"
   description = "The group name for the IBM HTTP Server user"
-  default = "ihsgrp"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_name
 variable "IHSNode01_ihs_os_users_ihs_name" {
   type = "string"
   description = "The username for IBM HTTP Server"
-  default = "ihssrv"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_shell
 variable "IHSNode01_ihs_os_users_ihs_shell" {
   type = "string"
   description = "Location of the IBM HTTP Server operating system user shell"
-  default = "/sbin/nologin"
 }
 
 #Variable : IHSNode01_ihs_plugin_enabled
 variable "IHSNode01_ihs_plugin_enabled" {
   type = "string"
   description = "IBM HTTP Server Plugin Enabled"
-  default = "true"
 }
 
 #Variable : IHSNode01_ihs_plugin_install_dir
 variable "IHSNode01_ihs_plugin_install_dir" {
   type = "string"
   description = "IBM HTTP Server Plugin Installation Direcrtory"
-  default = "/opt/IBM/WebSphere/Plugins"
 }
 
 #Variable : IHSNode01_ihs_plugin_was_webserver_name
 variable "IHSNode01_ihs_plugin_was_webserver_name" {
   type = "string"
   description = "IBM HTTP Server Plugin Hostname, normally the FQDN"
-  default = "webserver1"
 }
 
 #Variable : IHSNode01_ihs_port
 variable "IHSNode01_ihs_port" {
   type = "string"
   description = "The IBM HTTP Server default port for HTTP requests"
-  default = "8080"
 }
 
 #Variable : IHSNode01_ihs_version
 variable "IHSNode01_ihs_version" {
   type = "string"
   description = "The version of IBM HTTP Server to install"
-  default = "9.0.0.4"
 }
 
+
+##### virtualmachine variables #####
 
 #########################################################
 ##### Resource : IHSNode01
@@ -266,12 +248,10 @@ variable "IHSNode01_domain" {
 
 variable "IHSNode01_number_of_vcpu" {
   description = "Number of virtual CPU for the virtual machine, which is required to be a positive Integer"
-  default = "2"
 }
 
 variable "IHSNode01_memory" {
   description = "Memory assigned to the virtual machine in megabytes. This value is required to be an increment of 1024"
-  default = "2048"
 }
 
 variable "IHSNode01_cluster" {
@@ -306,7 +286,6 @@ variable "IHSNode01_ipv4_prefix_length" {
 
 variable "IHSNode01_adapter_type" {
   description = "Network adapter type for vNIC Configuration"
-  default = "vmxnet3"
 }
 
 variable "IHSNode01_root_disk_datastore" {
@@ -316,19 +295,16 @@ variable "IHSNode01_root_disk_datastore" {
 variable "IHSNode01_root_disk_type" {
   type = "string"
   description = "Type of template disk volume"
-  default = "eager_zeroed"
 }
 
 variable "IHSNode01_root_disk_controller_type" {
   type = "string"
   description = "Type of template disk controller"
-  default = "scsi"
 }
 
 variable "IHSNode01_root_disk_keep_on_remove" {
   type = "string"
   description = "Delete template disk volume when the virtual machine is deleted"
-  default = "false"
 }
 
 # vsphere vm

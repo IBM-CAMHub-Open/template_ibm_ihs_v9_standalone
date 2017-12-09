@@ -22,7 +22,6 @@ variable "ibm_pm_private_ssh_key" {
 variable "user_public_ssh_key" {
   type = "string"
   description = "User defined public SSH key used to connect to the virtual machine. The format must be in openSSH."
-  default = "None"
 }
 
 ##############################################################
@@ -61,15 +60,6 @@ variable "ibm_stack_name" {
   description = "A unique stack name."
 }
 
-#### Default OS Admin User Map ####
-variable "default_os_admin_user" {
-  type        = "map"
-  description = "look up os_admin_user using resource image"
-  default = {
-    UBUNTU_16_64 = "root"
-    REDHAT_7_64 = "root"
-  }
-}
 
 ##### Environment variables #####
 #Variable : ibm_im_repo
@@ -88,7 +78,6 @@ variable "ibm_im_repo_password" {
 variable "ibm_im_repo_user" {
   type = "string"
   description = "IBM Software  Installation Manager Repository username"
-  default = "repouser"
 }
 
 #Variable : ibm_pm_access_token
@@ -119,7 +108,6 @@ variable "ibm_sw_repo_password" {
 variable "ibm_sw_repo_user" {
   type = "string"
   description = "IBM Software Repo Username"
-  default = "repouser"
 }
 
 
@@ -128,14 +116,6 @@ variable "ibm_sw_repo_user" {
 variable "IHSNode01-image" {
   type = "string"
   description = "Operating system image id / template that should be used when creating the virtual image"
-  default = "REDHAT_7_64"
-}
-
-#Variable : IHSNode01-mgmt-network-public
-variable "IHSNode01-mgmt-network-public" {
-  type = "string"
-  description = "Expose and use public IP of virtual machine for internal communication"
-  default = "true"
 }
 
 #Variable : IHSNode01-name
@@ -154,7 +134,6 @@ variable "IHSNode01-os_admin_user" {
 variable "IHSNode01_ihs_admin_server_enabled" {
   type = "string"
   description = "IBM HTTP Server Admin Server Enable(true/false)"
-  default = "true"
 }
 
 #Variable : IHSNode01_ihs_admin_server_password
@@ -167,98 +146,92 @@ variable "IHSNode01_ihs_admin_server_password" {
 variable "IHSNode01_ihs_admin_server_port" {
   type = "string"
   description = "IBM HTTP Server Admin Server Port Number"
-  default = "8008"
 }
 
 #Variable : IHSNode01_ihs_admin_server_username
 variable "IHSNode01_ihs_admin_server_username" {
   type = "string"
   description = "IBM HTTP Server Admin Server username"
-  default = "ihsadmin"
 }
 
 #Variable : IHSNode01_ihs_install_dir
 variable "IHSNode01_ihs_install_dir" {
   type = "string"
   description = "The directory to install IBM HTTP Server"
-  default = "/opt/IBM/HTTPServer"
 }
 
 #Variable : IHSNode01_ihs_install_mode
 variable "IHSNode01_ihs_install_mode" {
   type = "string"
   description = "The mode of installation for IBM HTTP Server"
-  default = "nonAdmin"
 }
 
 #Variable : IHSNode01_ihs_java_legacy
 variable "IHSNode01_ihs_java_legacy" {
   type = "string"
   description = "The Java version to be used with IBM HTTP Server version 8.5.5"
-  default = "java8"
 }
 
 #Variable : IHSNode01_ihs_java_version
 variable "IHSNode01_ihs_java_version" {
   type = "string"
   description = "The Java version to be used with IBM HTTP Server"
-  default = "8.0.4.70"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_gid
 variable "IHSNode01_ihs_os_users_ihs_gid" {
   type = "string"
   description = "The group name for the IBM HTTP Server user"
-  default = "ihsgrp"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_name
 variable "IHSNode01_ihs_os_users_ihs_name" {
   type = "string"
   description = "The username for IBM HTTP Server"
-  default = "ihssrv"
 }
 
 #Variable : IHSNode01_ihs_os_users_ihs_shell
 variable "IHSNode01_ihs_os_users_ihs_shell" {
   type = "string"
   description = "Location of the IBM HTTP Server operating system user shell"
-  default = "/sbin/nologin"
 }
 
 #Variable : IHSNode01_ihs_plugin_enabled
 variable "IHSNode01_ihs_plugin_enabled" {
   type = "string"
   description = "IBM HTTP Server Plugin Enabled"
-  default = "true"
 }
 
 #Variable : IHSNode01_ihs_plugin_install_dir
 variable "IHSNode01_ihs_plugin_install_dir" {
   type = "string"
   description = "IBM HTTP Server Plugin Installation Direcrtory"
-  default = "/opt/IBM/WebSphere/Plugins"
 }
 
 #Variable : IHSNode01_ihs_plugin_was_webserver_name
 variable "IHSNode01_ihs_plugin_was_webserver_name" {
   type = "string"
   description = "IBM HTTP Server Plugin Hostname, normally the FQDN"
-  default = "webserver1"
 }
 
 #Variable : IHSNode01_ihs_port
 variable "IHSNode01_ihs_port" {
   type = "string"
   description = "The IBM HTTP Server default port for HTTP requests"
-  default = "8080"
 }
 
 #Variable : IHSNode01_ihs_version
 variable "IHSNode01_ihs_version" {
   type = "string"
   description = "The version of IBM HTTP Server to install"
-  default = "9.0.0.4"
+}
+
+
+##### virtualmachine variables #####
+#Variable : IHSNode01-mgmt-network-public
+variable "IHSNode01-mgmt-network-public" {
+  type = "string"
+  description = "Expose and use public IP of virtual machine for internal communication"
 }
 
 
@@ -266,7 +239,6 @@ variable "IHSNode01_ihs_version" {
 ##### domain name #####
 variable "runtime_domain" {
   description = "domain name"
-  default = "cam.ibm.com"
 }
 
 
@@ -279,7 +251,6 @@ variable "runtime_domain" {
 variable "IHSNode01_datacenter" {
   type = "string"
   description = "IBMCloud datacenter where infrastructure resources will be deployed"
-  default = "dal05"
 }
 
 
@@ -287,7 +258,6 @@ variable "IHSNode01_datacenter" {
 variable "IHSNode01_private_network_only" {
   type = "string"
   description = "Provision the virtual machine with only private IP"
-  default = "false"
 }
 
 
@@ -295,7 +265,6 @@ variable "IHSNode01_private_network_only" {
 variable "IHSNode01_number_of_cores" {
   type = "string"
   description = "Number of CPU cores, which is required to be a positive Integer"
-  default = "2"
 }
 
 
@@ -303,7 +272,6 @@ variable "IHSNode01_number_of_cores" {
 variable "IHSNode01_memory" {
   type = "string"
   description = "Amount of Memory (MBs), which is required to be one or more times of 1024"
-  default = "2048"
 }
 
 
@@ -311,7 +279,6 @@ variable "IHSNode01_memory" {
 variable "IHSNode01_network_speed" {
   type = "string"
   description = "Bandwidth of network communication applied to the virtual machine"
-  default = "10"
 }
 
 
@@ -319,7 +286,6 @@ variable "IHSNode01_network_speed" {
 variable "IHSNode01_hourly_billing" {
   type = "string"
   description = "Billing cycle: hourly billed or monthly billed"
-  default = "true"
 }
 
 
@@ -327,7 +293,6 @@ variable "IHSNode01_hourly_billing" {
 variable "IHSNode01_dedicated_acct_host_only" {
   type = "string"
   description = "Shared or dedicated host, where dedicated host usually means higher performance and cost"
-  default = "false"
 }
 
 
@@ -335,13 +300,11 @@ variable "IHSNode01_dedicated_acct_host_only" {
 variable "IHSNode01_local_disk" {
   type = "string"
   description = "User local disk or SAN disk"
-  default = "false"
 }
 
 variable "IHSNode01_root_disk_size" {
   type = "string"
   description = "Root Disk Size - IHSNode01"
-  default = "25"
 }
 
 resource "ibm_compute_vm_instance" "IHSNode01" {
@@ -360,7 +323,7 @@ resource "ibm_compute_vm_instance" "IHSNode01" {
   ssh_key_ids = ["${data.ibm_compute_ssh_key.ibm_pm_public_key.id}"]
   # Specify the ssh connection
   connection {
-    user = "${var.IHSNode01-os_admin_user == "" ? lookup(var.default_os_admin_user, var.IHSNode01-image) : var.IHSNode01-os_admin_user}"
+    user = "${var.IHSNode01-os_admin_user}"
     private_key = "${base64decode(var.ibm_pm_private_ssh_key)}"
   }
 
@@ -432,7 +395,7 @@ resource "camc_bootstrap" "IHSNode01_chef_bootstrap_comp" {
   trace = true
   data = <<EOT
 {
-  "os_admin_user": "${var.IHSNode01-os_admin_user == "default"? lookup(var.default_os_admin_user, var.IHSNode01-image) : var.IHSNode01-os_admin_user}",
+  "os_admin_user": "${var.IHSNode01-os_admin_user}",
   "stack_id": "${random_id.stack_id.hex}",
   "environment_name": "_default",
   "host_ip": "${var.IHSNode01-mgmt-network-public == "false" ? ibm_compute_vm_instance.IHSNode01.ipv4_address_private : ibm_compute_vm_instance.IHSNode01.ipv4_address}",
@@ -465,7 +428,7 @@ resource "camc_softwaredeploy" "IHSNode01_ihs-wasmode-nonadmin" {
   trace = true
   data = <<EOT
 {
-  "os_admin_user": "${var.IHSNode01-os_admin_user == "default"? lookup(var.default_os_admin_user, var.IHSNode01-image) : var.IHSNode01-os_admin_user}",
+  "os_admin_user": "${var.IHSNode01-os_admin_user}",
   "stack_id": "${random_id.stack_id.hex}",
   "environment_name": "_default",
   "host_ip": "${var.IHSNode01-mgmt-network-public == "false" ? ibm_compute_vm_instance.IHSNode01.ipv4_address_private : ibm_compute_vm_instance.IHSNode01.ipv4_address}",
