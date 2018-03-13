@@ -1,5 +1,5 @@
 # Template - IBM HTTP Server V9 on a single virtual machine
-Template Version - 1.0
+Template Version - 2.0
 
 ## Description
 
@@ -10,10 +10,6 @@ This template deploys a standalone instance of IBM HTTP Server 9 on a Linux virt
 ### Clouds
 
  IBM<br>
-<br>
-### Template Version
-
-1.0<br>
 <br>
 ### Operating Systems Supported
 
@@ -50,7 +46,7 @@ IBM SDK, Java Technology Edition V8<br>
 
 ### License and Maintainer
 
-Copyright IBM Corp. 2016, 2017 
+Copyright IBM Corp. 2017, 2018 
 
 ### Target Cloud Type
 
@@ -70,6 +66,7 @@ IBM
 
 - IBM HTTP Server  8.5.5.12
 - IBM HTTP Server  9.0.0.4
+- IBM HTTP Server  9.0.0.6
 
 
 *Note, these represent base versions only, explicit fixpacks may also be added.*

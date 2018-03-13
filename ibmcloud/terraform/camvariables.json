@@ -1,11 +1,11 @@
 {
-  "input_namespaces": [
+  "input_datatypes": [
     {
       "name": "advanced_content_runtime_chef",
       "label": "Advanced Content Runtime"
     }
   ],
-  "output_namespace": "content_template_output",
+  "output_datatype": "content_template_output",
   "input_groups": [
     {
       "name": "cloud",
@@ -36,6 +36,17 @@
   ],
   "template_input_params": [
     {
+      "name": "ibm_stack_id",
+      "type": "string",
+      "description": "A unique stack id.",
+      "hidden": true,
+      "label": "A unique stack id.",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "environment"
+    },
+    {
       "name": "ibm_stack_name",
       "type": "string",
       "description": "A unique stack name.",
@@ -50,7 +61,7 @@
       "name": "IHSNode01_ihs_java_version",
       "type": "string",
       "description": "The Java version to be used with IBM HTTP Server",
-      "default": "8.0.4.70",
+      "default": "8.0.50.7",
       "hidden": true,
       "label": "IBM HTTP Server Java version - IHSNode01",
       "secured": false,
@@ -127,7 +138,7 @@
       "name": "IHSNode01_ihs_version",
       "type": "string",
       "description": "The version of IBM HTTP Server to install",
-      "default": "9.0.0.4",
+      "default": "9.0.0.6",
       "hidden": false,
       "label": "IBM HTTP Server install version - IHSNode01",
       "secured": false,
@@ -297,6 +308,7 @@
       "secured": false,
       "required": true,
       "immutable": true,
+      "immutable_after_create": true,
       "group_name": "environment",
       "default": "${advanced_content_runtime_chef.ibm_im_repo}"
     },
@@ -322,6 +334,7 @@
       "secured": false,
       "required": true,
       "immutable": true,
+      "immutable_after_create": true,
       "group_name": "environment"
     },
     {
@@ -333,6 +346,7 @@
       "secured": true,
       "required": true,
       "immutable": true,
+      "immutable_after_create": true,
       "group_name": "environment",
       "default": "${advanced_content_runtime_chef.ibm_sw_repo_password}"
     },
@@ -345,6 +359,7 @@
       "secured": false,
       "required": true,
       "immutable": true,
+      "immutable_after_create": true,
       "group_name": "environment",
       "default": "${advanced_content_runtime_chef.ibm_sw_repo}"
     },
@@ -358,6 +373,7 @@
       "secured": false,
       "required": true,
       "immutable": true,
+      "immutable_after_create": true,
       "group_name": "environment"
     },
     {
@@ -732,7 +748,6 @@
       "secured": false,
       "required": true,
       "immutable": false,
-      "immutable_after_create": true,
       "group_name": "virtualmachine"
     },
     {
