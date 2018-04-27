@@ -166,7 +166,7 @@
     },
     {
       "name": "IHSNode01_ihs_admin_server_password",
-      "type": "string",
+      "type": "password",
       "description": "IBM HTTP Server Admin Server Password",
       "hidden": false,
       "label": "IBM HTTP Server admin server password - IHSNode01",
@@ -382,7 +382,7 @@
     },
     {
       "name": "ibm_im_repo_password",
-      "type": "string",
+      "type": "password",
       "description": "IBM Software  Installation Manager Repository Password",
       "hidden": true,
       "label": "IBM Software Installation Manager Repository Password",
@@ -407,7 +407,7 @@
     },
     {
       "name": "ibm_sw_repo_password",
-      "type": "string",
+      "type": "password",
       "description": "IBM Software Repo Password",
       "hidden": true,
       "label": "IBM Software Repo Password",
@@ -468,7 +468,7 @@
     },
     {
       "name": "IHSNode01-os_password",
-      "type": "string",
+      "type": "password",
       "description": "Operating System Password for the Operating System User to access virtual machine",
       "hidden": false,
       "label": "Operating system password - IHSNode01",
