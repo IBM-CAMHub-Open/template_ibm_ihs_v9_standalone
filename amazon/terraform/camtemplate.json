@@ -23,7 +23,6 @@
       }
     },
     "metadata": {
-      "displayName": "IBM HTTP Server V9 on a single virtual machine",
       "providerDisplayName": "Amazon EC2",
       "longDescription": "This template deploys a standalone instance of IBM HTTP Server 9 on a Linux virtual machine.",
       "bullets": [{
