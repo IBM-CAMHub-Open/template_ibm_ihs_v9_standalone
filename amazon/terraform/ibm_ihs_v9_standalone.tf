@@ -93,7 +93,6 @@ variable "ibm_stack_name" {
   description = "A unique stack name."
 }
 
-
 ##### Environment variables #####
 #Variable : ibm_im_repo
 variable "ibm_im_repo" {
@@ -312,7 +311,6 @@ variable "runtime_domain" {
 #########################################################
 ##### Resource : IHSNode01
 #########################################################
-
 
 #Parameter : IHSNode01_subnet_name
 data "aws_subnet" "IHSNode01_selected_subnet" {
